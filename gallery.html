@@ -129,17 +129,17 @@
 
     <!-- Navigation -->
     <nav id="main-nav"
-        class="sticky top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-40 transition-all duration-300">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="flex justify-between items-center h-14">
+        class="sticky top-0 left-0 right-0 bg-white/55 backdrop-blur-sm shadow-sm z-40 transition-all duration-300">
+        <div class="container mx-auto ">
+            <div class="flex justify-between items-center h-12 bg-transparent">
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center gap-2 group">
                     <div class="w-10 h-10 relative overflow-hidden transition-transform group-hover:scale-105">
                         <img src="./logo/walia-logo.jpeg" alt="Walia Youth Logo"
                             class="w-full h-full object-contain rounded-full">
                     </div>
-                    <span class="text-lg font-bold text-gray-900 leading-tight">Walia Youth<br><span
-                            class="text-[#23a454] text-xs uppercase tracking-wider">Soccer Academy</span></span>
+                    <span class="text-sm font-bold text-gray-900 leading-tight">Walia Youth<br><span
+                            class="text-[#23a454] text-[10px] uppercase tracking-wider">Soccer Academy</span></span>
                 </a>
 
                 <!-- Desktop Navigation -->
@@ -217,20 +217,25 @@
         <div class="container mx-auto px-4 lg:px-8">
             <!-- Filter Buttons (Mockup) -->
             <div class="flex justify-center gap-4 mb-12 flex-wrap" data-aos="fade-up">
-                <button class="px-6 py-2 rounded-full bg-[#23a454] text-white font-bold shadow-lg">All</button>
                 <button
-                    class="px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-bold hover:bg-gray-200 transition-colors">Training</button>
+                    class="filter-btn active px-6 py-2 rounded-full bg-[#23a454] text-white font-bold shadow-lg transition-all"
+                    data-filter="all">All</button>
                 <button
-                    class="px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-bold hover:bg-gray-200 transition-colors">Matches</button>
+                    class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-bold hover:bg-gray-200 transition-colors"
+                    data-filter="training">Training</button>
                 <button
-                    class="px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-bold hover:bg-gray-200 transition-colors">Events</button>
+                    class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-bold hover:bg-gray-200 transition-colors"
+                    data-filter="matches">Matches</button>
+                <button
+                    class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-bold hover:bg-gray-200 transition-colors"
+                    data-filter="events">Events</button>
             </div>
 
             <!-- Masonry Grid -->
-            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            <div id="gallery-grid" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
                 <!-- Item 1 -->
                 <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-md gallery-item"
-                    onclick="openLightbox(this)">
+                    data-category="training" onclick="openLightbox(this)">
                     <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                         alt="Training Day"
                         class="w-full h-auto transition-transform duration-500 group-hover:scale-110">
@@ -243,7 +248,7 @@
 
                 <!-- Item 2 -->
                 <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-md gallery-item"
-                    onclick="openLightbox(this)">
+                    data-category="matches" onclick="openLightbox(this)">
                     <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                         alt="Match Day" class="w-full h-auto transition-transform duration-500 group-hover:scale-110">
                     <div
@@ -255,7 +260,7 @@
 
                 <!-- Item 3 -->
                 <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-md gallery-item"
-                    onclick="openLightbox(this)">
+                    data-category="training" onclick="openLightbox(this)">
                     <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                         alt="Team Huddle" class="w-full h-auto transition-transform duration-500 group-hover:scale-110">
                     <div
@@ -267,7 +272,7 @@
 
                 <!-- Item 4 -->
                 <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-md gallery-item"
-                    onclick="openLightbox(this)">
+                    data-category="training" onclick="openLightbox(this)">
                     <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                         alt="Coach Instruction"
                         class="w-full h-auto transition-transform duration-500 group-hover:scale-110">
@@ -280,7 +285,7 @@
 
                 <!-- Item 5 -->
                 <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-md gallery-item"
-                    onclick="openLightbox(this)">
+                    data-category="matches" onclick="openLightbox(this)">
                     <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                         alt="Victory" class="w-full h-auto transition-transform duration-500 group-hover:scale-110">
                     <div
@@ -292,7 +297,7 @@
 
                 <!-- Item 6 -->
                 <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-md gallery-item"
-                    onclick="openLightbox(this)">
+                    data-category="events" onclick="openLightbox(this)">
                     <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                         alt="Youth Training"
                         class="w-full h-auto transition-transform duration-500 group-hover:scale-110">
@@ -403,6 +408,40 @@
                 document.body.style.overflow = 'auto';
             }, 300);
         }
+
+        // Gallery Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-[#23a454]', 'text-white', 'shadow-lg');
+                    b.classList.add('bg-gray-100', 'text-gray-600');
+                });
+
+                // Add active class to clicked
+                btn.classList.remove('bg-gray-100', 'text-gray-600');
+                btn.classList.add('bg-[#23a454]', 'text-white', 'shadow-lg');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hidden');
+                        // Add fade in animation
+                        item.classList.add('animate-fade-in');
+                    } else {
+                        item.classList.add('hidden');
+                        item.classList.remove('animate-fade-in');
+                    }
+                });
+
+                // Refresh AOS if needed, or trigger layout refresh
+                AOS.refresh();
+            });
+        });
     </script>
 </body>
 
