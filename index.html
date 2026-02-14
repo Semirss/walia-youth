@@ -1,0 +1,835 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walia Youth Soccer Academy | Elite Soccer Training in Georgia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        :root {
+            --primary: #23a454;
+            --primary-dark: #1e8a46;
+            --background-light: #f6f8f7;
+            --background-dark: #122017;
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .section-container {
+            scroll-margin-top: 60px;
+            /* Reduced from 80px */
+        }
+
+        .nav-active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .coach-card:hover img {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+
+        /* Floating Football Animation */
+        .football-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-football {
+            position: absolute;
+            width: 40px;
+            /* Scaled down */
+            opacity: 0.15;
+            /* Subtle */
+            animation: floatAround 25s infinite linear;
+        }
+
+        @keyframes floatAround {
+            0% {
+                transform: translate(-10%, -10%) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(110vw, 30vh) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(50vw, 110vh) rotate(180deg);
+            }
+
+            75% {
+                transform: translate(-10%, 80vh) rotate(270deg);
+            }
+
+            100% {
+                transform: translate(-10%, -10%) rotate(360deg);
+            }
+        }
+
+        /* Additional balls with different delays */
+        .floating-football:nth-child(2) {
+            animation-delay: -5s;
+            animation-duration: 30s;
+            width: 30px;
+        }
+
+        .floating-football:nth-child(3) {
+            animation-delay: -12s;
+            animation-duration: 35s;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 relative">
+    <!-- Floating Athletes -->
+    <div class="football-container">
+        <span class="material-symbols-outlined floating-football text-[#23a454] opacity-20"
+            style="font-size: 40px;">sprint</span>
+        <span class="material-symbols-outlined floating-football text-[#23a454] opacity-20"
+            style="font-size: 30px;">directions_run</span>
+        <span class="material-symbols-outlined floating-football text-[#23a454] opacity-20"
+            style="font-size: 50px;">groups</span>
+    </div>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+    </script>
+
+    <!-- Navigation -->
+    <nav id="main-nav"
+        class="sticky top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-40 transition-all duration-300">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center h-16"> <!-- Fixed height for compactness -->
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <!-- Placeholder Logo Image - Replace 'src' with actual logo path -->
+                    <div class="w-10 h-10 relative overflow-hidden transition-transform group-hover:scale-105">
+                        <img src="./logo/walia-logo.jpeg" alt="Walia Youth Logo"
+                            class="w-full h-full object-contain rounded-full">
+                    </div>
+                    <span class="text-lg font-bold text-gray-900 leading-tight">Walia Youth<br><span
+                            class="text-[#23a454] text-xs uppercase tracking-wider">Soccer Academy</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="index.html" class="text-gray-900 hover:text-[#23a454] nav-link">Home</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-[#23a454] nav-link">About</a>
+                    <a href="programs.html" class="text-gray-700 hover:text-[#23a454] nav-link">Programs</a>
+                    <a href="programs.html#gallery" class="text-gray-700 hover:text-[#23a454] nav-link">Gallery</a>
+                    <a href="index.html#coaches" class="text-gray-700 hover:text-[#23a454] nav-link">Coaches</a>
+                    <a href="programs.html#schedule" class="text-gray-700 hover:text-[#23a454] nav-link">Schedule</a>
+                    <a href="registration.html"
+                        class="bg-[#23a454] text-white px-5 py-2 rounded-full font-bold hover:bg-[#1e8a46] hover:shadow-lg transition-all transform hover:-translate-y-0.5">Join
+                        Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-[#23a454] transition-colors">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu"
+                class="hidden md:hidden border-t py-4 bg-white absolute top-16 left-0 right-0 shadow-lg px-4">
+                <div class="flex flex-col space-y-3 font-medium">
+                    <a href="index.html" class="text-gray-900 hover:text-[#23a454] nav-link block py-2">Home</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-[#23a454] nav-link block py-2">About</a>
+                    <a href="programs.html" class="text-gray-700 hover:text-[#23a454] nav-link block py-2">Programs</a>
+                    <a href="programs.html#gallery"
+                        class="text-gray-700 hover:text-[#23a454] nav-link block py-2">Gallery</a>
+                    <a href="index.html#coaches"
+                        class="text-gray-700 hover:text-[#23a454] nav-link block py-2">Coaches</a>
+                    <a href="programs.html#schedule"
+                        class="text-gray-700 hover:text-[#23a454] nav-link block py-2">Schedule</a>
+                    <a href="registration.html"
+                        class="bg-[#23a454] text-white px-6 py-2 rounded-full font-bold hover:bg-[#1e8a46] transition-colors text-center inline-block w-full">Join
+                        Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home"
+            class="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+                style="background-image: linear-gradient(to bottom, rgba(18, 32, 23, 0.7), rgba(18, 32, 23, 0.9)), url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80');">
+            </div>
+
+            <div class="container mx-auto px-4 lg:px-8 py-10 relative z-10 text-center text-white" data-aos="zoom-in"
+                data-aos-duration="1000">
+                <span
+                    class="inline-block px-3 py-1 rounded-full bg-[#23a454] text-white text-[10px] font-bold uppercase tracking-widest mb-4 backdrop-blur-md bg-opacity-90">Elite
+                    Youth Training</span>
+                <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight tracking-tight">
+                    Future Legends <br><span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#23a454] to-[#4ade80]">Start
+                        Here</span>
+                </h1>
+                <p class="text-base md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+                    Professional youth soccer training in Walia Youth, GA. Developing technical excellence and character
+                    in every player.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-3">
+                    <a href="registration.html"
+                        class="bg-[#23a454] hover:bg-[#1e8a46] text-white px-8 py-3 rounded-full font-bold text-base shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        Start Free Trial
+                    </a>
+                    <a href="programs.html"
+                        class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-3 rounded-full font-bold text-base hover:bg-white/20 transition-all duration-300">
+                        Explore Programs
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce opacity-70">
+                <a href="#about" class="text-white hover:text-[#23a454] transition-colors">
+                    <span class="material-symbols-outlined text-3xl">expand_more</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- New Section: Why Choose Us -->
+        <section class="py-12 bg-white relative z-10">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="p-4" data-aos="fade-up" data-aos-delay="0">
+                        <div
+                            class="w-12 h-12 bg-[#23a454]/10 rounded-full flex items-center justify-center mx-auto mb-3 text-[#23a454]">
+                            <span class="material-symbols-outlined text-2xl">license</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900">UEFA Coaches</h3>
+                    </div>
+                    <div class="p-4" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-12 h-12 bg-[#23a454]/10 rounded-full flex items-center justify-center mx-auto mb-3 text-[#23a454]">
+                            <span class="material-symbols-outlined text-2xl">stadium</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900">Elite Facilities</h3>
+                    </div>
+                    <div class="p-4" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-12 h-12 bg-[#23a454]/10 rounded-full flex items-center justify-center mx-auto mb-3 text-[#23a454]">
+                            <span class="material-symbols-outlined text-2xl">school</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900">Scholarships</h3>
+                    </div>
+                    <div class="p-4" data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="w-12 h-12 bg-[#23a454]/10 rounded-full flex items-center justify-center mx-auto mb-3 text-[#23a454]">
+                            <span class="material-symbols-outlined text-2xl">trophy</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900">Championships</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-container py-12 bg-white">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center mb-10" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-black mb-4">Our Football Philosophy</h2>
+                    <p class="text-lg text-gray-600">
+                        We believe in building character through disciplined training and a true passion for the game.
+                    </p>
+                </div>
+
+                <!-- Core Values -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1"
+                        data-aos="flip-left" data-aos-delay="0">
+                        <div
+                            class="w-12 h-12 rounded-full bg-[#23a454]/10 flex items-center justify-center text-[#23a454] mb-4 mx-auto">
+                            <span class="material-symbols-outlined text-2xl">sports_score</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-center">Discipline</h3>
+                        <p class="text-sm text-gray-600 text-center">Consistent work ethic and self-control.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1"
+                        data-aos="flip-left" data-aos-delay="100">
+                        <div
+                            class="w-12 h-12 rounded-full bg-[#23a454]/10 flex items-center justify-center text-[#23a454] mb-4 mx-auto">
+                            <span class="material-symbols-outlined text-2xl">groups</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-center">Teamwork</h3>
+                        <p class="text-sm text-gray-600 text-center">Collaboration over individual glory.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1"
+                        data-aos="flip-left" data-aos-delay="200">
+                        <div
+                            class="w-12 h-12 rounded-full bg-[#23a454]/10 flex items-center justify-center text-[#23a454] mb-4 mx-auto">
+                            <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-center">Excellence</h3>
+                        <p class="text-sm text-gray-600 text-center">Modern European methodologies.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1"
+                        data-aos="flip-left" data-aos-delay="300">
+                        <div
+                            class="w-12 h-12 rounded-full bg-[#23a454]/10 flex items-center justify-center text-[#23a454] mb-4 mx-auto">
+                            <span class="material-symbols-outlined text-2xl">favorite</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 text-center">Community</h3>
+                        <p class="text-sm text-gray-600 text-center">Family-oriented environment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Gallery -->
+        <section id="gallery" class="section-container py-12 bg-gray-50">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-black mb-4">Academy in Action</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        See our players developing their skills and enjoying the beautiful game.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square rounded-xl overflow-hidden shadow-md group">
+                        <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Training"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="aspect-square rounded-xl overflow-hidden shadow-md group md:col-span-2 md:row-span-2">
+                        <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Match Day"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="aspect-square rounded-xl overflow-hidden shadow-md group">
+                        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Youth Player"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="aspect-square rounded-xl overflow-hidden shadow-md group">
+                        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Team Huddle"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="aspect-square rounded-xl overflow-hidden shadow-md group">
+                        <img src="https://images.unsplash.com/photo-1628157779496-6e9f909121a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Drills"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="section-container py-12 bg-gray-50">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-black mb-4">Training Programs</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Progressive curriculum designed by UEFA licensed coaches.
+                    </p>
+                </div>
+
+                <!-- Program Cards -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Foundation Program -->
+                    <div class="program-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+                                alt="Young players" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span
+                                    class="bg-[#23a454] text-white px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider">U8-U10</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Foundation & Fun</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                                Nurturing the love for the game through play and fundamental techniques.
+                            </p>
+                            <ul class="space-y-2 mb-6 text-sm">
+                                <li class="flex items-center gap-2 text-gray-700"><span
+                                        class="material-symbols-outlined text-[#23a454] text-sm">check_circle</span>
+                                    Motor Skills</li>
+                                <li class="flex items-center gap-2 text-gray-700"><span
+                                        class="material-symbols-outlined text-[#23a454] text-sm">check_circle</span>
+                                    Basic Technique</li>
+                            </ul>
+                            <a href="programs.html"
+                                class="block w-full border border-[#23a454] text-[#23a454] hover:bg-[#23a454] hover:text-white text-center py-2 rounded-lg font-bold text-sm transition-colors">
+                                Inquire Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Development Program -->
+                    <div class="program-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                alt="Competitive match" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span
+                                    class="bg-[#23a454] text-white px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider">U11-U14</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Competitive Dev</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                                Building tactical understanding and advanced skills for competitive play.
+                            </p>
+                            <ul class="space-y-2 mb-6 text-sm">
+                                <li class="flex items-center gap-2 text-gray-700"><span
+                                        class="material-symbols-outlined text-[#23a454] text-sm">check_circle</span>
+                                    Tactics</li>
+                                <li class="flex items-center gap-2 text-gray-700"><span
+                                        class="material-symbols-outlined text-[#23a454] text-sm">check_circle</span>
+                                    League Play</li>
+                            </ul>
+                            <a href="programs.html"
+                                class="block w-full border border-[#23a454] text-[#23a454] hover:bg-[#23a454] hover:text-white text-center py-2 rounded-lg font-bold text-sm transition-colors">
+                                Inquire Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Elite Program -->
+                    <div class="program-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                alt="Elite training" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3">
+                                <span
+                                    class="bg-[#23a454] text-white px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider">U15-U18</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Elite Academy</h3>
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                                High-performance training for athletes pursuing collegiate pathways.
+                            </p>
+                            <ul class="space-y-2 mb-6 text-sm">
+                                <li class="flex items-center gap-2 text-gray-700"><span
+                                        class="material-symbols-outlined text-[#23a454] text-sm">check_circle</span>
+                                    High Intensity</li>
+                                <li class="flex items-center gap-2 text-gray-700"><span
+                                        class="material-symbols-outlined text-[#23a454] text-sm">check_circle</span>
+                                    Recruitment</li>
+                            </ul>
+                            <a href="programs.html"
+                                class="block w-full border border-[#23a454] text-[#23a454] hover:bg-[#23a454] hover:text-white text-center py-2 rounded-lg font-bold text-sm transition-colors">
+                                Inquire Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coaches Section -->
+        <section id="coaches" class="section-container py-12 bg-white">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-black mb-4">Expert Coaching Staff</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        International experience and USSF-certified expertise.
+                    </p>
+                </div>
+
+                <!-- Coaches Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Coach 1 -->
+                    <div class="coach-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group"
+                        data-aos="fade-up" data-aos-delay="0">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80"
+                                alt="Coach Julian"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                                <h3 class="text-white font-bold text-lg">Julian Mendoza</h3>
+                                <p class="text-[#23a454] text-sm font-medium">Director of Coaching</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coach 2 -->
+                    <div class="coach-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1548695607-9c73430ba065?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80"
+                                alt="Coach Sarah"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                                <h3 class="text-white font-bold text-lg">Sarah Jenkins</h3>
+                                <p class="text-[#23a454] text-sm font-medium">Head Coach U12</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coach 3 -->
+                    <div class="coach-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80"
+                                alt="Coach David"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                                <h3 class="text-white font-bold text-lg">David Chen</h3>
+                                <p class="text-[#23a454] text-sm font-medium">Head of Goalkeeping</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule" class="section-container py-12 bg-gray-50">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-black mb-4">Training Schedule</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Spring 2024 Season Training Times
+                    </p>
+                </div>
+
+                <!-- Schedule Table -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100" data-aos="zoom-in">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-50 border-b border-gray-100">
+                                <tr>
+                                    <th class="text-left p-4 font-bold text-gray-700">Program</th>
+                                    <th class="text-left p-4 font-bold text-gray-700">Age</th>
+                                    <th class="text-left p-4 font-bold text-gray-700">Day</th>
+                                    <th class="text-left p-4 font-bold text-gray-700">Time</th>
+                                    <th class="text-left p-4 font-bold text-gray-700">Coach</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-50">
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="p-4 font-medium text-[#23a454]">Elite Academy</td>
+                                    <td class="p-4"><span
+                                            class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">U15-U18</span></td>
+                                    <td class="p-4 text-gray-600">Mon/Wed/Fri</td>
+                                    <td class="p-4 font-bold">5:30 PM - 7:00 PM</td>
+                                    <td class="p-4">Coach Julian</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="p-4 font-medium text-orange-500">Competitive Dev</td>
+                                    <td class="p-4"><span
+                                            class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">U11-U14</span></td>
+                                    <td class="p-4 text-gray-600">Tue/Thu/Sat</td>
+                                    <td class="p-4 font-bold">6:00 PM - 7:30 PM</td>
+                                    <td class="p-4">Coach Sarah</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="p-4 font-medium text-blue-500">Foundation</td>
+                                    <td class="p-4"><span
+                                            class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">U8-U10</span></td>
+                                    <td class="p-4 text-gray-600">Tue/Thu</td>
+                                    <td class="p-4 font-bold">4:30 PM - 5:30 PM</td>
+                                    <td class="p-4">Coach David</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Testimonials -->
+        <section class="section-container py-12 bg-white">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-black mb-4">Parent Stories</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-gray-50 rounded-xl border border-gray-100" data-aos="fade-up" data-aos-delay="0">
+                        <div class="flex items-center gap-1 text-yellow-400 mb-3">
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 italic">"The discipline and improvement I've seen in my son
+                            is incredible. The coaches genuinely care."</p>
+                        <div class="font-bold text-sm">- Michael T., Parent</div>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl border border-gray-100" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="flex items-center gap-1 text-yellow-400 mb-3">
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 italic">"Top facilities and a very professional
+                            environment. Best academy in the region."</p>
+                        <div class="font-bold text-sm">- Sarah L., Parent</div>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl border border-gray-100" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="flex items-center gap-1 text-yellow-400 mb-3">
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4 italic">"My daughter loves the training sessions. It's
+                            challenging but very fun."</p>
+                        <div class="font-bold text-sm">- David R., Parent</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use only ONE Contact Section below. The original had a form, let's keep it compact. -->
+        <!-- Contact Section -->
+        <section id="contact" class="section-container py-12 bg-[#122017] text-white relative overflow-hidden">
+            <!-- Background Texture -->
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
+
+            <div class="container mx-auto px-4 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl md:text-4xl font-black mb-4">Join The Academy</h2>
+                        <p class="text-gray-400 mb-8">
+                            Ready to take your game to the next level? Sign up for a free trial session today.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#23a454]/20 flex items-center justify-center text-[#23a454]">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Main Campus</h4>
+                                    <p class="text-sm text-gray-400">123 Soccer Way, Walia Youth, GA 30000</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#23a454]/20 flex items-center justify-center text-[#23a454]">
+                                    <span class="material-symbols-outlined">call</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Phone</h4>
+                                    <p class="text-sm text-gray-400">+1 (678) 555-0123</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#23a454]/20 flex items-center justify-center text-[#23a454]">
+                                    <span class="material-symbols-outlined">mail</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p class="text-sm text-gray-400">hello@waliayouthacademy.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-xl text-gray-800" data-aos="fade-left">
+                        <form id="registration-form" class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Parent
+                                        Name</label>
+                                    <input type="text"
+                                        class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#23a454]"
+                                        placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Phone</label>
+                                    <input type="tel"
+                                        class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#23a454]"
+                                        placeholder="(555) 000-0000">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Email
+                                    Address</label>
+                                <input type="email"
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#23a454]"
+                                    placeholder="john@example.com">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Player
+                                        Age</label>
+                                    <select
+                                        class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#23a454]">
+                                        <option>Select Age</option>
+                                        <option>5-7 Years</option>
+                                        <option>8-10 Years</option>
+                                        <option>11-14 Years</option>
+                                        <option>15-18 Years</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Program</label>
+                                    <select
+                                        class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#23a454]">
+                                        <option>Foundation</option>
+                                        <option>Competitive</option>
+                                        <option>Elite</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-[#23a454] text-white font-bold py-3 rounded-lg hover:bg-[#1e8a46] transition-colors shadow-lg transform hover:-translate-y-1">
+                                Book Free Trial
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-white pt-10 pb-6">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-[#23a454] flex items-center justify-center">
+                        <span class="material-symbols-outlined text-sm">sports_soccer</span>
+                    </div>
+                    <span class="text-lg font-bold">Walia Youth</span>
+                </div>
+                <div class="flex gap-6 text-sm text-gray-400">
+                    <a href="#about" class="hover:text-[#23a454] transition-colors">About</a>
+                    <a href="#programs" class="hover:text-[#23a454] transition-colors">Programs</a>
+                    <a href="#schedule" class="hover:text-[#23a454] transition-colors">Schedule</a>
+                    <a href="#contact" class="hover:text-[#23a454] transition-colors">Contact</a>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#23a454] transition-colors">
+                        <span class="material-symbols-outlined text-sm">public</span>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#23a454] transition-colors">
+                        <span class="material-symbols-outlined text-sm">share</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-600">
+                <p>&copy; 2026 Walia Youth Soccer Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+                menuBtn.querySelector('.material-symbols-outlined').textContent = icon;
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Offset for fixed header
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        if (menuBtn) menuBtn.querySelector('.material-symbols-outlined').textContent = 'menu';
+                    }
+                }
+            });
+        });
+
+        // Sticky Navigation transparency effect
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('py-4'); // Make it smaller on scroll
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('py-4'); // Restore padding at top
+            }
+        });
+
+        // Form submission (Demo)
+        document.getElementById('registration-form')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
