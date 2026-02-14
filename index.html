@@ -294,56 +294,77 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="section-container py-12 bg-white">
-            <div class="container mx-auto px-4 lg:px-8">
-                <div class="max-w-4xl mx-auto text-center mb-10" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-black mb-4">Our Football Philosophy</h2>
-                    <p class="text-lg text-gray-600">
-                        We believe in building character through disciplined training and a true passion for the game.
-                    </p>
-                </div>
+        <!-- Mission & Vision Section (Stadium Style) -->
+        <section id="about" class="section-container relative py-20 bg-cover bg-center bg-fixed"
+            style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/80"></div>
 
-                <!-- Core Values -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1"
-                        data-aos="flip-left" data-aos-delay="0">
+            <div class="container mx-auto px-4 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <!-- Video (Left) -->
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-[#23a454]/30 group"
+                        data-aos="fade-right">
+                        <!-- Video -->
                         <div
-                            class="w-12 h-12 rounded-full bg-[#23a454]/10 flex items-center justify-center text-[#23a454] mb-4 mx-auto">
-                            <span class="material-symbols-outlined text-2xl">sports_score</span>
+                            class="aspect-video bg-black relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"
+                                poster="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                                <source src="https://cdn.pixabay.com/video/2023/10/15/185090-874635839_large.mp4"
+                                    type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="absolute inset-0 bg-black/10"></div>
                         </div>
-                        <h3 class="text-lg font-bold mb-2 text-center">Discipline</h3>
-                        <p class="text-sm text-gray-600 text-center">Consistent work ethic and self-control.</p>
+                        <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                            <p class="text-white font-bold text-sm">Watch Our Journey</p>
+                        </div>
                     </div>
 
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1"
-                        data-aos="flip-left" data-aos-delay="100">
-                        <div
-                            class="w-12 h-12 rounded-full bg-[#23a454]/10 flex items-center justify-center text-[#23a454] mb-4 mx-auto">
-                            <span class="material-symbols-outlined text-2xl">groups</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2 text-center">Teamwork</h3>
-                        <p class="text-sm text-gray-600 text-center">Collaboration over individual glory.</p>
-                    </div>
+                    <!-- Text (Right) -->
+                    <div class="text-white" data-aos="fade-left">
+                        <span class="text-[#23a454] font-bold tracking-wider uppercase text-sm mb-2 block">Our
+                            Philosophy</span>
+                        <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight">More Than Just <br><span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-[#23a454] to-[#4ade80]">A
+                                Game</span></h2>
 
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1"
-                        data-aos="flip-left" data-aos-delay="200">
-                        <div
-                            class="w-12 h-12 rounded-full bg-[#23a454]/10 flex items-center justify-center text-[#23a454] mb-4 mx-auto">
-                            <span class="material-symbols-outlined text-2xl">workspace_premium</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2 text-center">Excellence</h3>
-                        <p class="text-sm text-gray-600 text-center">Modern European methodologies.</p>
-                    </div>
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="flex items-center gap-3 text-xl font-bold mb-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-[#23a454]/20 flex items-center justify-center text-[#23a454]">
+                                        <span class="material-symbols-outlined">flag</span>
+                                    </div>
+                                    Our Mission
+                                </h3>
+                                <p class="text-gray-300 leading-relaxed pl-13 border-l-2 border-[#23a454]/30 pl-4">
+                                    To empower young athletes through professional soccer training, fostering
+                                    discipline, teamwork, and a relentless pursuit of excellence both on and off the
+                                    field.
+                                </p>
+                            </div>
 
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1"
-                        data-aos="flip-left" data-aos-delay="300">
-                        <div
-                            class="w-12 h-12 rounded-full bg-[#23a454]/10 flex items-center justify-center text-[#23a454] mb-4 mx-auto">
-                            <span class="material-symbols-outlined text-2xl">favorite</span>
+                            <div>
+                                <h3 class="flex items-center gap-3 text-xl font-bold mb-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-[#23a454]/20 flex items-center justify-center text-[#23a454]">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </div>
+                                    Our Vision
+                                </h3>
+                                <p class="text-gray-300 leading-relaxed pl-13 border-l-2 border-[#23a454]/30 pl-4">
+                                    To be the premier youth soccer academy in Georgia, recognized for developing
+                                    top-tier talent and future leaders who inspire their communities.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold mb-2 text-center">Community</h3>
-                        <p class="text-sm text-gray-600 text-center">Family-oriented environment.</p>
+
+                        <div class="mt-8 flex gap-4">
+                            <a href="#programs"
+                                class="px-6 py-3 rounded-full border border-white/30 hover:bg-[#23a454] hover:border-[#23a454] transition-all text-sm font-bold">Explore
+                                Programs</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -510,14 +531,20 @@
                 <!-- Coaches Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Coach 1 -->
-                    <div class="coach-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group"
+                    <div class="coach-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative"
                         data-aos="fade-up" data-aos-delay="0">
                         <div class="relative h-64 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80"
                                 alt="Coach Julian"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div
-                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <button onclick="openCoachModal('julian')"
+                                    class="bg-[#23a454] text-white px-6 py-2 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">View
+                                    Details</button>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 group-hover:opacity-0 transition-opacity">
                                 <h3 class="text-white font-bold text-lg">Julian Mendoza</h3>
                                 <p class="text-[#23a454] text-sm font-medium">Director of Coaching</p>
                             </div>
@@ -525,14 +552,20 @@
                     </div>
 
                     <!-- Coach 2 -->
-                    <div class="coach-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group"
+                    <div class="coach-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative"
                         data-aos="fade-up" data-aos-delay="100">
                         <div class="relative h-64 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1548695607-9c73430ba065?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80"
                                 alt="Coach Sarah"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div
-                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <button onclick="openCoachModal('sarah')"
+                                    class="bg-[#23a454] text-white px-6 py-2 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">View
+                                    Details</button>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 group-hover:opacity-0 transition-opacity">
                                 <h3 class="text-white font-bold text-lg">Sarah Jenkins</h3>
                                 <p class="text-[#23a454] text-sm font-medium">Head Coach U12</p>
                             </div>
@@ -540,14 +573,20 @@
                     </div>
 
                     <!-- Coach 3 -->
-                    <div class="coach-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group"
+                    <div class="coach-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 group relative"
                         data-aos="fade-up" data-aos-delay="200">
                         <div class="relative h-64 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80"
                                 alt="Coach David"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div
-                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <button onclick="openCoachModal('david')"
+                                    class="bg-[#23a454] text-white px-6 py-2 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">View
+                                    Details</button>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 group-hover:opacity-0 transition-opacity">
                                 <h3 class="text-white font-bold text-lg">David Chen</h3>
                                 <p class="text-[#23a454] text-sm font-medium">Head of Goalkeeping</p>
                             </div>
@@ -556,6 +595,46 @@
                 </div>
             </div>
         </section>
+
+        <!-- Coach Details Modal -->
+        <div id="coach-modal"
+            class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+            onclick="closeCoachModal()">
+            <div class="bg-white rounded-2xl w-full max-w-3xl mx-4 overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative"
+                onclick="event.stopPropagation()">
+                <button onclick="closeCoachModal()"
+                    class="absolute top-4 right-4 z-10 text-white bg-black/50 hover:bg-black/70 rounded-full p-1 transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <div class="flex flex-col md:flex-row h-full">
+                    <!-- Coach Image -->
+                    <div class="w-full md:w-2/5 h-64 md:h-auto relative">
+                        <img id="modal-coach-img" src="" alt="Coach"
+                            class="w-full h-full object-cover absolute inset-0">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6">
+                            <h2 id="modal-coach-name" class="text-2xl font-bold text-white"></h2>
+                            <p id="modal-coach-role" class="text-[#23a454] font-medium"></p>
+                        </div>
+                    </div>
+                    <!-- Coach Info -->
+                    <div class="w-full md:w-3/5 p-8 overflow-y-auto max-h-[60vh] md:max-h-auto">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[#23a454]">history_edu</span>
+                            History & Experience
+                        </h3>
+                        <p id="modal-coach-history" class="text-gray-600 mb-6 leading-relaxed"></p>
+
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[#23a454]">emoji_events</span>
+                            Achievements
+                        </h3>
+                        <ul id="modal-coach-achievements" class="space-y-2">
+                            <!-- Achievements List -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Schedule Section -->
         <section id="schedule" class="section-container py-12 bg-gray-50">
@@ -942,6 +1021,86 @@
             alert('Thank you for your interest! We will contact you shortly.');
             this.reset();
         });
+
+        // Coach Data & Modal Logic
+        const coaches = {
+            julian: {
+                name: "Julian Mendoza",
+                role: "Director of Coaching",
+                img: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80",
+                history: "Julian brings over 15 years of professional coaching experience, recognizing the importance of technical mastery and tactical intelligence.",
+                achievements: [
+                    "UEFA A License Holder",
+                    "Former Professional Player (MLS)",
+                    "Led U16s to State Championship (2023)"
+                ]
+            },
+            sarah: {
+                name: "Sarah Jenkins",
+                role: "Head Coach U12",
+                img: "https://images.unsplash.com/photo-1548695607-9c73430ba065?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80",
+                history: "Sarah is a specialist in youth development with a background in sports psychology. She focuses on building confidence and fundamental skills.",
+                achievements: [
+                    "USSF B License",
+                    "Masters in Sports Psychology",
+                    "Youth Coach of the Year Nominee"
+                ]
+            },
+            david: {
+                name: "David Chen",
+                role: "Head of Goalkeeping",
+                img: "https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80",
+                history: "David is a former collegiate goalkeeper who has dedicated his career to training the next generation of keepers.",
+                achievements: [
+                    "NCAA D1 Goalkeeper",
+                    "Goalkeeping Diploma Level 3",
+                    "Developed 5 College-signed Keepers"
+                ]
+            }
+        };
+
+        const coachModal = document.getElementById('coach-modal');
+        const modalImg = document.getElementById('modal-coach-img');
+        const modalName = document.getElementById('modal-coach-name');
+        const modalRole = document.getElementById('modal-coach-role');
+        const modalHistory = document.getElementById('modal-coach-history');
+        const modalAchievements = document.getElementById('modal-coach-achievements');
+
+        function openCoachModal(coachId) {
+            const coach = coaches[coachId];
+            if (!coach) return;
+
+            modalImg.src = coach.img;
+            modalName.textContent = coach.name;
+            modalRole.textContent = coach.role;
+            modalHistory.textContent = coach.history;
+
+            modalAchievements.innerHTML = '';
+            coach.achievements.forEach(ach => {
+                const li = document.createElement('li');
+                li.className = 'flex items-center gap-2 text-gray-700 text-sm bg-gray-50 p-2 rounded';
+                li.innerHTML = `<span class="material-symbols-outlined text-[#23a454] text-sm">check_circle</span>${ach}`;
+                modalAchievements.appendChild(li);
+            });
+
+            coachModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                coachModal.classList.remove('opacity-0');
+                coachModal.querySelector('div').classList.remove('scale-95');
+                coachModal.querySelector('div').classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeCoachModal() {
+            coachModal.classList.add('opacity-0');
+            coachModal.querySelector('div').classList.remove('scale-100');
+            coachModal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                coachModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
     </script>
 </body>
 
