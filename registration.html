@@ -104,6 +104,22 @@
             animation-duration: 35s;
             width: 50px;
         }
+
+        /* Infinite Slide Animation */
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-66.66%);
+                /* Move 2/3rds for 3 images */
+            }
+        }
+
+        .animate-slide {
+            animation: slide 30s linear infinite;
+        }
     </style>
 </head>
 
@@ -130,13 +146,12 @@
     <nav id="main-nav"
         class="sticky top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-40 transition-all duration-300">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="flex justify-between items-center h-16"> <!-- Fixed height for compactness -->
+            <div class="flex justify-between items-center h-14"> <!-- Compact Height -->
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center gap-2 group">
-                    <!-- Placeholder Logo Image - Replace 'src' with actual logo path -->
                     <div class="w-10 h-10 relative overflow-hidden transition-transform group-hover:scale-105">
-                        <img src="https://ui-avatars.com/api/?name=Walia+Youth&background=23a454&color=fff&size=128"
-                            alt="Walia Youth Logo" class="w-full h-full object-contain rounded-full">
+                        <img src="./logo/walia-logo.jpeg" alt="Walia Youth Logo"
+                            class="w-full h-full object-contain rounded-full">
                     </div>
                     <span class="text-lg font-bold text-gray-900 leading-tight">Walia Youth<br><span
                             class="text-[#23a454] text-xs uppercase tracking-wider">Soccer Academy</span></span>
@@ -147,7 +162,7 @@
                     <a href="index.html" class="text-gray-700 hover:text-[#23a454] nav-link">Home</a>
                     <a href="index.html#about" class="text-gray-700 hover:text-[#23a454] nav-link">About</a>
                     <a href="programs.html" class="text-gray-700 hover:text-[#23a454] nav-link">Programs</a>
-                    <a href="programs.html#gallery" class="text-gray-700 hover:text-[#23a454] nav-link">Gallery</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-[#23a454] nav-link">Gallery</a>
                     <a href="index.html#coaches" class="text-gray-700 hover:text-[#23a454] nav-link">Coaches</a>
                     <a href="programs.html#schedule" class="text-gray-700 hover:text-[#23a454] nav-link">Schedule</a>
                     <a href="registration.html"
@@ -168,8 +183,7 @@
                     <a href="index.html" class="text-gray-900 hover:text-[#23a454] nav-link block py-2">Home</a>
                     <a href="index.html#about" class="text-gray-700 hover:text-[#23a454] nav-link block py-2">About</a>
                     <a href="programs.html" class="text-gray-700 hover:text-[#23a454] nav-link block py-2">Programs</a>
-                    <a href="programs.html#gallery"
-                        class="text-gray-700 hover:text-[#23a454] nav-link block py-2">Gallery</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-[#23a454] nav-link block py-2">Gallery</a>
                     <a href="index.html#coaches"
                         class="text-gray-700 hover:text-[#23a454] nav-link block py-2">Coaches</a>
                     <a href="programs.html#schedule"
@@ -185,14 +199,32 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section id="home"
-            class="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-                style="background-image: linear-gradient(to bottom, rgba(18, 32, 23, 0.7), rgba(18, 32, 23, 0.9)), url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80');">
+        <section id="registration" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <!-- Infinite Sliding Background -->
+            <div class="absolute inset-0 z-0 overflow-hidden">
+                <div class="flex animate-slide h-full w-[300%]">
+                    <!-- Image 1 -->
+                    <div class="w-1/3 h-full bg-cover bg-center"
+                        style="background-image: linear-gradient(to bottom, rgba(18, 32, 23, 0.6), rgba(18, 32, 23, 0.8)), url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="w-1/3 h-full bg-cover bg-center"
+                        style="background-image: linear-gradient(to bottom, rgba(18, 32, 23, 0.6), rgba(18, 32, 23, 0.8)), url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80');">
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="w-1/3 h-full bg-cover bg-center"
+                        style="background-image: linear-gradient(to bottom, rgba(18, 32, 23, 0.6), rgba(18, 32, 23, 0.8)), url('https://images.unsplash.com/photo-1529900748604-07564a03e7a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                    </div>
+                </div>
             </div>
 
             <div class="container mx-auto px-4 lg:px-8 py-10 relative z-10 text-center text-white" data-aos="zoom-in"
                 data-aos-duration="1000">
+                <!-- Animated Logo -->
+                <div class="flex justify-center mb-6">
+                    <img src="./logo/walia-logo.jpeg" alt="Walia Youth Logo"
+                        class="w-24 h-24 md:w-32 md:h-32 object-contain rounded-full border-4 border-[#23a454] animate-bounce shadow-2xl">
+                </div>
                 <span
                     class="inline-block px-3 py-1 rounded-full bg-[#23a454] text-white text-[10px] font-bold uppercase tracking-widest mb-4 backdrop-blur-md bg-opacity-90">Join
                     The Team</span>
