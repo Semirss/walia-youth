@@ -308,10 +308,10 @@
                         <!-- Video -->
                         <div
                             class="aspect-video bg-black relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"
+                            <video id="mission-video" autoplay muted loop playsinline
+                                class="absolute inset-0 w-full h-full object-cover"
                                 poster="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
-                                <source src="/background/videoplayback (1).mp4"
-                                    type="video/mp4">
+                                <source src="./background/vedeo1.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                             <div class="absolute inset-0 bg-black/10"></div>
@@ -1101,6 +1101,18 @@
                 document.body.style.overflow = 'auto';
             }, 300);
         }
+
+        // Ensure mission video autoplays and loops
+        document.addEventListener('DOMContentLoaded', function () {
+            const missionVideo = document.getElementById('mission-video');
+            if (missionVideo) {
+                missionVideo.muted = true;
+                missionVideo.loop = true;
+                missionVideo.play().catch(function (error) {
+                    console.log('Video autoplay failed:', error);
+                });
+            }
+        });
     </script>
 </body>
 
